@@ -2,29 +2,15 @@
 
 VTOLVR Localization project by the community for the community. 
 
-## For Developers
+This repository was created to combine all localizations that exist for VTOLVR into one central place.
+This should allow for easier finding of languages, sharing them around.
 
-If you are looking into running the loc building scripts locally here's how:
+**If you would like to contribute, feel free to fork this repository and create a PR with the language you'd like to contribute (or any other addition/fix).**
 
-```bash
-# Build a single language
-bun scripts/build-loc.ts --lang el
+I am working on a mini-script that allows you to convert existing CSV files into "VTOLVR Polyglot" compatible files. (By the way, you can read more on why I use this custom system on [ABOUT.md](ABOUT.md))
 
-# Build all languages in /languages (skips english)
-bun scripts/build-loc.ts --all
+I am also going to be working on a web-editor that allows you to easily generate loc files without having to manually edit the text.
 
-# Build with custom output directory
-bun scripts/build-loc.ts --all --out build
+## Contributing
 
-# Build for release (includes ALL.zip)
-bun scripts/build-loc.ts --all --release
-```
-
-All Options
-
-- `--lang <code>`: Build a single language
-- `--all`: Build all languages
-- `--out <dir>`: Cahnge the output directory (default: `dist`)
-- `--strict`: Fail on errors (default)
-- `--no-strict`: Warn instead of fail (useful for development)
-- `--release`: Also create `ALL.zip`
+See [CONTRIBUTING.md](CONTRIBUTING.md)
