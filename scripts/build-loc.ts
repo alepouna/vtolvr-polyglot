@@ -1,3 +1,7 @@
+// Copyright (c) 2026 alepouna
+// SPDX-License-Identifier: MIT
+// Project: https://github.com/alepouna/vtolvr-polyglot
+
 import { existsSync, mkdirSync, readdirSync, rmSync } from "fs";
 import { basename, join, resolve } from "path";
 
