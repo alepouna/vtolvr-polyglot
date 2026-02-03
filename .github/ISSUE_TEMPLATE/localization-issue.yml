@@ -1,0 +1,81 @@
+name: Localization Issue
+description: Report an issue with an existing translation (incorrect translation, typo, formatting, etc.)
+title: "[LOC] "
+labels: ["localization"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve VTOLVR Polyglot localization! Please fill out the form below to report an issue with an existing translation.
+
+  - type: input
+    id: language-file
+    attributes:
+      label: Language
+      description: Which language has the issue? Reference the file name from the languages directory
+      placeholder: "en.json"
+    validations:
+      required: true
+
+  - type: input
+    id: key
+    attributes:
+      label: Translation Key
+      description: If this is related to one specific translation key, what's the key of the problematic translation? (field "vtolvr_key")
+      placeholder: "e.g., joyParent_856842"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Issue Type
+      description: What kind of issue is this?
+      options:
+        - Incorrect translation
+        - Typo or spelling error
+        - Grammar error
+        - Formatting issue
+        - Missing translation
+        - Cultural inappropriateness
+        - Inconsistency with other translations
+        - Other
+      multiple: true
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested-translation
+    attributes:
+      label: Suggested Translation
+      description: What should the translation be?
+      placeholder: "Provide your suggested correction"
+    validations:
+      required: false
+
+  - type: textarea
+    id: explanation
+    attributes:
+      label: Explanation
+      description: Please explain why the current translation is problematic and why your suggestion is better (if applicable)
+      placeholder: "Provide context and reasoning for the change"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context, screenshots, or information about the issue
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: native-speaker
+    attributes:
+      label: Language Proficiency
+      description: Please confirm your familiarity with this language
+      options:
+        - label: I am a native speaker of this language
+        - label: I am fluent/proficient in this language
+        - label: I have consulted with a native speaker

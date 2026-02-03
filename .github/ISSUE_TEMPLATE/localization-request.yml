@@ -1,0 +1,50 @@
+name: Localization Request
+description: Request a new translation, language support, or improvements to existing localizations
+title: "[REQUEST] "
+labels: ["localization", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing to VTOLVR Polyglot! Use this form to request new translations, language support, or improvements.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Request Description
+      description: Please describe your request in detail, including the language you are interested in
+      placeholder: |
+        Examples:
+        - "Add support for Finnish language"
+        - "Translate the settings menu to German"
+        - "Update Russian translations to use more formal language"
+    validations:
+      required: true
+
+  - type: textarea
+    id: resources
+    attributes:
+      label: Available Resources
+      description: Do you have any resources to help with this request? (existing translations, glossaries, etc.)
+      placeholder: "Links, files, or references that could help with this translation"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Are you willing to help with this request?
+      options:
+        - label: I can provide the translations myself
+        - label: I can review translations submitted by others
+        - label: I can help test the translations in-game
+        - label: I am requesting this but cannot contribute directly
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other information about your request
+    validations:
+      required: false
