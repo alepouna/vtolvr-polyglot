@@ -1,7 +1,8 @@
 {
   "scripts": {
     "tsc": "bunx tsc --noEmit",
-    "loc:all": "bun scripts/build-loc.ts --all --out dist"
+    "loc:all": "bun scripts/build-loc.ts --all --out dist",
+    "csv2json": "bun scripts/csv-to-json.ts"
   },
   "dependencies": {},
   "devDependencies": {
