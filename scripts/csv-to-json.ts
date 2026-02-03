@@ -357,11 +357,31 @@ async function main() {
       processedLanguages.push(lang);
       console.log(`  → Output: ${outputPath}`);
       
-      // Write missing keys file if there are any missing translations
-      if (langMissingKeys.length > 0) {
+      // Write missing keys file if there are any missing translations or categories
+      if (langMissingKeys.length > 0 || missingCategories.length > 0) {
         const missingPath = join(outDirPath, `${lang}.missing.txt`);
-        await Bun.write(missingPath, langMissingKeys.join("\n") + "\n");
-        console.log(`  → Missing keys: ${missingPath} (${langMissingKeys.length} keys)`);
+        const missingContent: string[] = [];
+        
+        // Add missing categories header if any
+        if (missingCategories.length > 0) {
+          missingContent.push("=== Missing Categories (CSV Files) ===");
+          for (const cat of missingCategories) {
+            missingContent.push(`${CATEGORY_MAP[cat]}`);
+          }
+          missingContent.push("");
+        }
+        
+        // Add missing keys header if any
+        if (langMissingKeys.length > 0) {
+          if (missingCategories.length > 0) {
+            missingContent.push("=== Missing Translations ===");
+          }
+          missingContent.push(...langMissingKeys);
+        }
+        
+        await Bun.write(missingPath, missingContent.join("\n") + "\n");
+        const totalMissingItems = langMissingKeys.length + missingCategories.length;
+        console.log(`  → Missing key s: ${missingPath} (${totalMissingItems} items: ${missingCategories.length} categories, ${langMissingKeys.length} translations)`);
       }
       
       console.log();
