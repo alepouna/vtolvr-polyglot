@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'languages/**'
+      - 'scripts/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Build all languages
+        run: bun scripts/build-loc.ts --all --out dist --strict
+
+      - name: Upload language artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: localization-zips
+          path: dist/*.loc.zip
+          if-no-files-found: warn
